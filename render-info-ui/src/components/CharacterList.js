@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Character from "./Character"
 import Button from "../ui/Button"
+import PropTypes from "prop-types"
 
 function CharacterList({getData, data, isLoading, error}) {
   let navigate = useNavigate()
@@ -27,5 +28,12 @@ function CharacterList({getData, data, isLoading, error}) {
     </div>
   )
 }
-    
+
+CharacterList.propTypes = {
+  getData: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired
+}
+
 export default CharacterList

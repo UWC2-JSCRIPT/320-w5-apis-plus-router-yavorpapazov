@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom"
+import classes from "./ErrorPage.module.css"
+import Button from "../ui/Button"
 
 function ErrorPage() {
   return (
-    <div>
+    <div className={classes["error-page-container"]}>
       <h3>Something went wrong!</h3>
-      <Link to="/">Back to Home</Link>
+      <Button to="/">Back to Home</Button>
     </div>
   )
 }

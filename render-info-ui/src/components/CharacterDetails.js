@@ -2,6 +2,7 @@ import classes from "./CharacterDetails.module.css"
 import { useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import Button from "../ui/Button"
+import PropTypes from "prop-types"
 
 function CharacterDetails({getData, data, isLoading, error, name, birth_year, height}) {
   let {id} = useParams()
@@ -40,5 +41,15 @@ function CharacterDetails({getData, data, isLoading, error, name, birth_year, he
     </div>
   )
 }
-    
+
+CharacterDetails.propTypes = {
+  getData: PropTypes.func.isRequired,
+  data: PropTypes.array.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  error: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  birth_year: PropTypes.string,
+  height: PropTypes.string
+}
+
 export default CharacterDetails
