@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom"
+import classes from "./Home.module.css"
+import Button from "../ui/Button"
 
 function Home() {
   return (
-    <div>
+    <div className={classes["home-container"]}>
       <h3>Home</h3>
-      <Link to="/characters">Character list</Link>
+      <Button to="/characters">Character list</Button>
     </div>
   )
 }

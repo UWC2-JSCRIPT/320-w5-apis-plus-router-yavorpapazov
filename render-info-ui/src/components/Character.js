@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom"
+import Button from "../ui/Button"
 
 function Character({name}) {
   return (
-    <div>
-      <Link to={`/characters/${name}`}>{name}</Link>
-    </div>
+    <Button to={`/characters/${name}`}>{name}</Button>
   )
 }
     

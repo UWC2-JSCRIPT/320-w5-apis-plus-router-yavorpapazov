@@ -1,6 +1,8 @@
+import classes from "./CharacterList.module.css"
 import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import Character from "./Character"
+import Button from "../ui/Button"
 
 function CharacterList({getData, data, isLoading, error}) {
   let navigate = useNavigate()
@@ -19,8 +21,8 @@ function CharacterList({getData, data, isLoading, error}) {
     content = <h3>Loading...</h3>
   }
   return (
-    <div>
-      <Link to="/">Back to Home</Link>
+    <div className={classes["character-list-container"]}>
+      <Button to="/">Back to Home</Button>
       {content}
     </div>
   )

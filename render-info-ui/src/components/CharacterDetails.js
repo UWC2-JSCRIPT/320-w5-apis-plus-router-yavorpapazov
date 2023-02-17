@@ -1,5 +1,7 @@
+import classes from "./CharacterDetails.module.css"
 import { useEffect } from "react"
-import { useParams, Link, useNavigate } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
+import Button from "../ui/Button"
 
 function CharacterDetails({getData, data, isLoading, error, name, birth_year, height}) {
   let {id} = useParams()
@@ -7,14 +9,18 @@ function CharacterDetails({getData, data, isLoading, error, name, birth_year, he
   useEffect(() => {
     getData(id)
   }, [getData, id])
-  let content = <h3>Found no data</h3>
+  let content = (
+    <div>
+      <h3>Found no data</h3>
+    </div>
+  )
   if(data.length > 0) {
     content = (
-      <div>
+      <div className={classes["character-details-container"]}>
+        <Button to="/">Back to Home</Button>
         <h3>Name: {name}</h3>
         <h3>Birth year: {birth_year}</h3>
         <h3>Height: {height}</h3>
-        <Link to="/">Back to Home</Link>
       </div>
     )
   }
@@ -22,7 +28,11 @@ function CharacterDetails({getData, data, isLoading, error, name, birth_year, he
     content = navigate('/error')
   }
   if(isLoading) {
-    content = <h3>Loading...</h3>
+    content = (
+      <div className={classes["character-details-container"]}>
+        <h3>Loading...</h3>
+      </div>
+    )
   }
   return (
     <div>
